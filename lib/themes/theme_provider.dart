@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_0/themes/dark_mode.dart';  // Proje adına göre yolu güncelle
-import 'package:flutter_application_0/themes/light_mode.dart'; // Proje adına göre yolu güncelle
+import 'package:flutter_application_0/themes/dark_mode.dart';  
+import 'package:flutter_application_0/themes/light_mode.dart'; 
 
 class ThemeProvider with ChangeNotifier {
   ThemeData _themeData = darkMode; // Varsayılan tema koyu mod

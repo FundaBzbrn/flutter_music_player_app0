@@ -35,6 +35,13 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   provider: ^6.1.1
+  sqflite: ^2.3.0  # Veya en son sürüm
+  path: ^1.8.3     # Veya en son sürüm
+  audioplayers: ^5.2.1 # En son sürümü pub.dev'den kontrol edebilirsiniz
+
+  on_audio_query: ^2.9.0    # YENİ - Cihazdaki ses dosyalarını sorgulamak için
+  permission_handler: ^11.3.0 # YENİ - İzinleri yönetmek için
+  # (Paketlerin en son sürümlerini pub.dev'den kontrol edin)
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +66,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/audio/  
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -90,3 +99,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+
+
+

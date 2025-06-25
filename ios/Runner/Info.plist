@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppleMusicUsageDescription</key>
+    <string>Müziklerinize erişerek kütüphanenizi oluşturmak ve çalmak istiyoruz.</string>
+    <!-- İsteğe Bağlı: Eğer fotoğraflardan albüm kapağı almak gibi bir niyetiniz varsa -->
+    <!-- <key>NSPhotoLibraryUsageDescription</key> -->
+    <!-- <string>Albümlerinize kapak resmi eklemek için fotoğraflarınıza erişmek istiyoruz.</string> -->
+
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

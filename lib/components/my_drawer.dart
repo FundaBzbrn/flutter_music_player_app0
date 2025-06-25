@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_0/pages/settings_page.dart'; // Proje adına göre yolu güncelle
-import 'package:flutter_application_0/pages/favorites_page.dart'; // Proje adına göre yolu güncelle (Favoriler eklenecekse)
+import 'package:flutter_application_0/pages/favorites_page.dart';
+import 'package:flutter_application_0/pages/settings_page.dart';
+// Proje adına göre yolu güncelle
+// Proje adına göre yolu güncelle
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -8,6 +10,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme; // Daha iyi metin stilleri için
 
     return Drawer(
       backgroundColor: colorScheme.surface,
@@ -15,45 +18,51 @@ class MyDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-              color: colorScheme.secondary,
+              color: colorScheme.secondary, // Veya colorScheme.primary.withOpacity(0.1) gibi bir ton
             ),
             child: Center(
               child: Text(
-                'M Ü Z İ K  U Y G U L A M A S I',
+                'F F T İ F Y  M Ü Z İ K',
                 style: TextStyle(
-                  color: colorScheme.inversePrimary,
-                  fontSize: 20,
+                  color: colorScheme.primary, // Başlık rengini primary yapalım
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  letterSpacing: 1.5, // Harf aralığı
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 25.0, top: 10.0),
+            padding: const EdgeInsets.only(left: 20.0, top: 15.0), // Sol padding biraz azaltıldı
             child: ListTile(
               title: Text(
                 "A N A  S A Y F A",
-                style: TextStyle(color: colorScheme.inversePrimary),
+                style: TextStyle(
+                    color: colorScheme.onSurface.withOpacity(0.87), // Daha görünür bir gri tonu
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1.2,
+                ),
               ),
-              leading: Icon(Icons.home_rounded, color: colorScheme.inversePrimary),
+              leading: Icon(Icons.home_rounded, color: colorScheme.primary), // İkon rengi primary
               onTap: () {
-                Navigator.pop(context); // Drawer'ı kapat
-                // Eğer MainNavigationPage'de _selectedIndex ile yönetiliyorsa
-                // ve HomePage ilk sayfa (index 0) ise, direkt drawer'ı kapatmak yeterli.
-                // Veya Navigasyon state'ini güncelleyebilirsiniz. Şimdilik sadece kapatıyoruz.
+                Navigator.pop(context);
               },
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 25.0, top: 0),
+            padding: const EdgeInsets.only(left: 20.0, top: 5.0),
             child: ListTile(
               title: Text(
-                "F A V O R İ L E R", // Favoriler için drawer öğesi
-                style: TextStyle(color: colorScheme.inversePrimary),
+                "F A V O R İ L E R",
+                style: TextStyle(
+                    color: colorScheme.onSurface.withOpacity(0.87),
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1.2,
+                ),
               ),
-              leading: Icon(Icons.favorite_rounded, color: colorScheme.inversePrimary),
+              leading: Icon(Icons.favorite_rounded, color: colorScheme.primary), // İkon rengi primary
               onTap: () {
-                Navigator.pop(context); // Drawer'ı kapat
+                Navigator.pop(context);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -64,42 +73,38 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 25.0, top: 0),
+            padding: const EdgeInsets.only(left: 20.0, top: 5.0),
             child: ListTile(
               title: Text(
                 "A Y A R L A R",
-                style: TextStyle(color: colorScheme.inversePrimary),
+                style: TextStyle(
+                    color: colorScheme.onSurface.withOpacity(0.87),
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1.2,
+                ),
               ),
-              leading: Icon(Icons.settings_rounded, color: colorScheme.inversePrimary),
+              leading: Icon(Icons.settings_rounded, color: colorScheme.primary), // İkon rengi primary
               onTap: () {
-                Navigator.pop(context); // Drawer'ı kapat
-                // SettingsPage zaten BottomNavBar'da olduğu için oradan erişilebilir.
-                // İsterseniz buradan da yönlendirme yapabilirsiniz:
-                /*
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsPage(),
-                  ),
-                );
-                */
-                // Ya da BottomNavBar'daki ilgili sekmeye geçişi sağlayabilirsiniz.
-                // Bu, MainNavigationPage'deki state'i değiştirmeyi gerektirir.
-                // Şimdilik, SettingsPage'e BottomNavBar'dan erişileceğini varsayalım.
-                // Eğer drawer'dan direkt SettingsPage'e gitmek isterseniz:
-                // Not: Eğer SettingsPage BottomNav'da ise bu gereksiz olabilir.
-                // (context.findAncestorStateOfType<_MainNavigationPageState>() as _MainNavigationPageState)._onItemTapped(3);
-                // Yukarıdaki yöntem _MainNavigationPageState'e erişim gerektirir ve çok önerilmez.
-                // Daha iyi bir yöntem, Provider veya callback kullanmaktır.
-                // Şimdilik, Ayarlar zaten BottomNav'da olduğundan sadece drawer'ı kapatıyoruz.
-                // Veya direk SettingsPage'e push edebilirsiniz:
+                Navigator.pop(context);
                 Navigator.push(
                      context,
                      MaterialPageRoute(
-                       builder: (context) => const SettingsPage(), // SettingsPage'e direkt yönlendirme
+                       builder: (context) => const SettingsPage(),
                      ),
                    );
               },
+            ),
+          ),
+          // İsteğe bağlı: En alta bir ayırıcı veya boşluk eklenebilir
+          const Spacer(), // Kalan alanı doldurur, aşağıdaki öğeleri en alta iter
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'Version 1.0.0', // Örnek versiyon bilgisi
+              style: TextStyle(
+                color: colorScheme.onSurface.withOpacity(0.5),
+                fontSize: 12,
+              ),
             ),
           ),
         ],
